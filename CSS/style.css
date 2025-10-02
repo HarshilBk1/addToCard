@@ -1,0 +1,49 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color: black;
+}
+header .container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #212121;
+    
+}
+.search{
+    background-color: transparent;
+    border: 1px solid white;
+}
+.card{
+    background-color: #212121;
+}
+.card:hover{
+    background-color: transparent;
+    border: 2px solid #212121;
+}
+.products-details .card:hover{
+    background-color: #212121;
+    border: 1px solid #212121;
+}
+.badge{
+    background-color: #157347;
+}
+.addCard:hover{
+    background-color: #228B22;
+    border: 0px;
+}
+.addCard{
+    background-color: transparent;
+    border: 1px solid #228B22;
+    color: #228B22;
+}
+.buybtn{
+    background-color: #ff4500;
+    border: 0px;
+}
+.warranty{
+    color: white;
+}
+.logo{
+    color: #ff4500;
+}
