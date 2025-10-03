@@ -1819,7 +1819,7 @@ let DisplayProducts = () => {
                               <p class="card-text text-success fw-bold mb-0">Rs .  $ ${rec.price}</p>
                                 <span class = "text-secondary">${rec.warrantyInformation}</span>
                                 <div class="d-flex justify-content-between mt-3">
-                                <button class="btn btn-primary addCard" onclick="addButton()">Add to Cart</button>
+                                <button class="btn btn-primary addCard" onclick="addButton(${rec.id})">Add to Cart</button>
                                 <button class="btn btn-success buybtn">Buy Now</button>
                             </div>
                           </div>
@@ -1830,19 +1830,47 @@ let DisplayProducts = () => {
             </div>
         `;
     });
+
+
     data.innerHTML = str;
 }
 
-                  
-let count = JSON.parse(localStorage.getItem("icon")) || 0;
+ let badgecount = JSON.parse(localStorage.getItem("badgecount")) || 0  ;
 let badge = document.querySelector(".badge");
-if (badge) badge.innerHTML = count;
+if(badge)badge.innerHTML =badgecount;
 
 
-function addButton(index) {
-  count++;
-  if (badge) badge.innerHTML = count;
-  localStorage.setItem('icon', JSON.stringify(count));
+function updateBadge() {
+    badgecount++;
+    badge.innerHTML = badgecount;
+    localStorage.setItem('badgecount',JSON.stringify(badgecount));
+}
+
+
+function addButton(id) {
+  updateBadge();
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    let selectedProduct = products.find(p => p.id == id);    
+    let cart = JSON.parse(localStorage.getItem("Cartitem")) || [];
+    let productInCart = cart.find(item => item.id == id);
+    if (productInCart) {
+        productInCart.quantity += 1;
+    } else {
+        let newItem = {
+            id: selectedProduct.id,
+            thumbnail: selectedProduct.thumbnail,
+            title: selectedProduct.title,
+            price: selectedProduct.price,
+            quantity: 1,
+            description: selectedProduct.description
+        };
+        cart.push(newItem); 
+    }
+
+
+    localStorage.setItem('Cartitem', JSON.stringify(cart));
+
+
 }
 
 

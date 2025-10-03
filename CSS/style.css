@@ -1,6 +1,9 @@
 a{
     text-decoration: none;
 }
+ul{
+    list-style: none;
+}
 body{
     background-color: black;
 }
@@ -46,4 +49,33 @@ header .container{
 }
 .logo{
     color: #ff4500;
+}
+.proTable{
+    border: 1px solid white;
+}
+.proTable tr{
+    border: 1px solid white;
+}
+.incree,.dicree{
+    background-color: transparent;
+    color: white;
+    
+}
+.deleteBtn{
+    background-color: #DC3545;
+    border: 0px;
+    padding: 3px 13px;
+    transition: all 0.5s;
+}
+.deleteBtn:hover{
+    background-color: transparent;
+    border: 2px solid #DC3545;
+    color: #DC3545;
+}
+.productPrice .buybtn{
+    margin: 10px auto;
+    padding: 7px 15px;
+}
+.productPrice .buybtn:hover{
+    background-color: #157347;
 }
